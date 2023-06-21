@@ -1,0 +1,136 @@
+﻿@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+@media (min-width: 576px) {
+    .card-columns.card-columns-categories {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 767px) {
+    .post-content img {
+        cursor: inherit;
+    }
+
+    .post-publish-info {
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+
+    .blogger-intro-mobile {
+        position: relative;
+    }
+
+    .card-bkimg-container {
+        height: 95px !important;
+    }
+
+    .card-bkimg {
+        margin-left: -63px !important;
+        margin-top: -124px !important;
+        min-width: 141% !important;
+    }
+
+    .blogger-head-pic {
+        height: 65px !important;
+        width: 65px !important;
+    }
+
+    .blogger-intro-content {
+        color: #FFF;
+        padding: 15px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+        .blogger-intro-content h4 {
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            padding: 5px;
+            text-shadow: 2px 0 2px #000;
+            transform: translate(0, 50%);
+        }
+
+    .form-control#term {
+        width: 100% !important;
+    }
+
+    .navbar .nav-item {
+        margin: 0 !important;
+    }
+
+    .navbar .dropdown-menu {
+        box-shadow: none;
+        font-size: 1rem;
+    }
+
+    .pagination {
+        margin: 10px 0;
+    }
+
+    .post-summary-text {
+        color: #555;
+        line-height: 22px;
+    }
+
+    .post-summary-box {
+        margin-left: 0 !important;
+    }
+
+    .article-post-summary {
+        border-bottom: 1px solid #EEE;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+
+    .img-timeline {
+        display: none;
+    }
+
+    ul.timeline:before {
+        left: 22px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 65px);
+        width: -moz-calc(100% - 65px);
+        width: -webkit-calc(100% - 65px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        height: 45px;
+        left: 0;
+        line-height: 45px;
+        margin-left: 0;
+        top: 16px;
+        width: 45px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+}

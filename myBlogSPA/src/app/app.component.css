@@ -1,0 +1,12 @@
+.router-outlet {
+    padding: 20px;
+}
+
+.sidenav-container{
+    flex: 1 0 auto;
+    margin-top: 4rem;
+}
+
+.nav-list {
+    margin-top: 4rem;
+}

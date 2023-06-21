@@ -1,0 +1,60 @@
+# Docker
+# Build a Docker image 
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+- releases/*
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+  
+pool: Default
+  
+
+stages:
+- stage: Build
+  jobs:  
+  - job: Build_Angular_and_Dotnet
+    
+    steps:
+    - task: Bash@3
+      displayName: get production settings
+      inputs:
+        targetType: 'inline'
+        script: | 
+          cp ~/*.json ./myBlog.API
+          cp ~/environment.prod.ts ./myBlogSPA/src/environments
+    
+    - task: Bash@3
+      displayName: build angular project 
+      inputs:
+        targetType: 'inline'
+        script: |
+          cd myBlogSPA
+          npm install
+          ng build --prod
+          
+
+    - task: Docker@2
+      displayName: Build docker image
+      inputs:
+        command: build
+        arguments: --rm 
+        dockerfile: 'myBlog.API/Dockerfile'
+        repository: $(repo)
+        tags: |
+          latest
+
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'MyDockerHub'
+        repository: '$(repo)'
+        command: 'push'
+        addPipelineData: false
+        tags: |
+          latest
+

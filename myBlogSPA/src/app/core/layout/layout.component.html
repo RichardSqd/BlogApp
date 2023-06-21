@@ -1,0 +1,80 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [mode]="'side'" [fixedInViewport]="true">
+        <mat-nav-list  class="nav-list" >
+            <a mat-list-item [routerLinkActive] [routerLink]="['/home']">Home</a>
+            <a mat-list-item [routerLinkActive] [routerLink]="['/myaccount']">Account</a>
+            <!-- <a mat-list-item [routerLink]="['/messages']">Message</a> -->
+
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <!-- nav -->
+      <nav class="navbar navbar-expand-md navbar-light navbar-inner" >
+
+        <div class="navbar-header">
+          
+          <button mat-icon-button>
+            <i class="material-icons" (click)="sidenav.toggle()">near_me</i>
+          </button>
+          <a class="navbar-brand" [routerLink]="['/home']" >{{name | titlecase}}</a>
+          <button mat-icon-button class="navbar-toggler brand" 
+           (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+      
+        <div class="collapse navbar-collapse" [ngbCollapse]=isCollapsed>
+          <ul class="nav navbar-nav mr-auto">
+            <!-- <li class="nav-item router" [routerLinkActive]>
+              <a class="nav-link" [routerLink]="['/topics']">Topics </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Projects</a>
+            </li> -->
+            <li class="nav-item " >
+
+              <div ngbDropdown>
+                <a class="nav-link"  id="dropdown1" ngbDropdownToggle>Languages</a>
+                <div ngbDropdownMenu aria-labelledby="dropdown1">
+                  <button ngbDropdownItem> English</button>
+                  <button ngbDropdownItem> Chinese</button>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="https://qidongs.net/docs/resume.pdf">About</a>
+            </li>
+            
+          </ul>
+          
+          <ng-container *ngIf="!loggedIn(); else ele">
+            <button class="btn btn-outline-success btn-sm" [routerLink]="['/login']" type="button">Login</button>
+          </ng-container>
+          <ng-template #ele [routerLinkActive]>
+            <button class="btn btn-outline-success" (click)="logout()" [routerLink]="['/home']" type="button">Logout</button>
+          </ng-template>
+      
+        </div>
+             
+    </nav>
+
+
+
+      <!-- masthead  -->
+      <!-- <header calss=masthead style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/1451px-NGC_4414_%28NASA-med%29.jpg);">Header</header> -->
+
+
+
+        <div class = "router-outlet content-wrap">
+    
+          <router-outlet></router-outlet>
+        </div>
+
+        <app-footer></app-footer>
+
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

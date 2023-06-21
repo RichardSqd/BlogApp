@@ -1,0 +1,13 @@
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+  }
+
+img {
+  max-width: 540px;
+  max-height: 274px;
+  width: auto;
+  height: auto;
+}
